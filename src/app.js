@@ -13,6 +13,14 @@ app.get('/ping', async (req, res) => {
     console.log(JSON.stringify(result))
     res.json(result[0])
 })
+app.get('/create', async (req, res) => {
+
+
+
+   const result =  await conn.query('INSERT INTO habitaciones (numero,tipo,valor) VALUES (1,"vip",200)')
+   res.json(JSON.stringify(result))
+
+})
 
 app.listen(PORT)
 
