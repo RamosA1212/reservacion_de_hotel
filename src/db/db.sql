@@ -5,7 +5,7 @@ CREATE TABLE habitaciones (
     valor INT
 );
 
--- Creación de la tabla reservas con código autoincrementable
+
 CREATE TABLE reservas (
     codigo INT AUTO_INCREMENT PRIMARY KEY,
     codigo_habitacion INT,

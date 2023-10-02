@@ -35,6 +35,7 @@ export const createHabitacion = async (req, res) => {
         const [rows] = await conn.query('INSERT INTO habitaciones (numero,tipo,valor) VALUES (?,?,?)', [numero,tipo,valor])
         console.log(req.body)
         console.log(rows)
+        res.status(201).json({message: 'Habitacion crada'})
     } catch (error) {
 
         res.status(500).json({message:'Ha ocurrido un Error'})
@@ -48,12 +49,11 @@ export const updateHabitacion = async (req, res) => {
     try {
     const [result] =  await conn.query('UPDATE habitaciones SET numero=IFNULL(?,numero),tipo=IFNULL(?,tipo),valor=IFNULL(?,valor) WHERE codigo=?',[numero,tipo,valor,codigo])
     if (result.affectedRows<=0) return res.status(404).json ({
-        message : 'habitacion no encontrado'
+        message : 'habitacion no encontrada'
     })
      
      
-     const [rows]= await conn.query('SELECT * FROM habitaciones WHERE codigo=?',[codigo])
-     res.json(rows[0])
+    res.status(201).json({message: 'Habitacion actualizada'})
 
         
     }catch (error) {
@@ -72,10 +72,11 @@ export const deleteHabitacion = async (req, res) => {
         if (rows.affectedRows<=0)return res.status(404).json({
             message:'Habitacion no encontrada'
         })
-        res.send(rows)
+        res.status(201).json({message: 'Habitacion eliminada'})
     } catch (error) {
         res.status(500).json({message:'Ha ocurrido un error'})
     }
     
 
 }
+

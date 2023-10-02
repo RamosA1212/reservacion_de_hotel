@@ -2,6 +2,7 @@ import  express  from "express";
 import { conn } from "./db.js";
 import { PORT } from "./config.js";
 import habitacionesRoutes from './routes/habitaciones.routes.js';
+import reservasRoutes from './routes/reservas.routes.js'
 const app = express();
 app.use(express.json())
 
@@ -31,6 +32,7 @@ app.get('/ver', async (req, res) => {
 })
 
 app.use('/api',habitacionesRoutes)
+app.use('/api',reservasRoutes)
 
 app.listen(PORT)
 
