@@ -1,14 +1,13 @@
--- Creación de la tabla habitaciones
 CREATE TABLE habitaciones (
-    codigo INT PRIMARY KEY,
+    codigo INT AUTO_INCREMENT PRIMARY KEY,
     numero INT,
     tipo VARCHAR(255),
     valor INT
 );
 
--- Creación de la tabla reservas
+-- Creación de la tabla reservas con código autoincrementable
 CREATE TABLE reservas (
-    codigo INT PRIMARY KEY,
+    codigo INT AUTO_INCREMENT PRIMARY KEY,
     codigo_habitacion INT,
     nombre_cliente VARCHAR(255),
     telefono_cliente VARCHAR(20),
