@@ -20,34 +20,22 @@ async function executeQuery(query) {
   }
   
 
-  const createHabitacionesTableQuery = `
-    CREATE TABLE habitaciones (
-      codigo INT AUTO_INCREMENT PRIMARY KEY,
-      numero INT,
-      tipo VARCHAR(255),
-      valor INT
-    );
+  const createUsuarios = `
+  CREATE TABLE usuarios (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    username VARCHAR(255) UNIQUE NOT NULL,
+    contraseña VARCHAR(255) NOT NULL,
+    rol ENUM('administrador', 'solicitante') NOT NULL
+  );
   `;
   
 
-  const createReservasTableQuery = `
-    CREATE TABLE reservas (
-      codigo INT AUTO_INCREMENT PRIMARY KEY,
-      codigo_habitacion INT,
-      nombre_cliente VARCHAR(255),
-      telefono_cliente VARCHAR(20),
-      fecha_reservacion DATE,
-      fecha_entrada DATE,
-      fecha_salida DATE,
-      FOREIGN KEY (codigo_habitacion) REFERENCES habitaciones(codigo)
-    );
-  `;
+  
   
 
   async function createTables() {
     try {
-      await executeQuery(createHabitacionesTableQuery);
-      await executeQuery(createReservasTableQuery);
+      await executeQuery(createUsuarios);
       console.log("Tablas creadas exitosamente");
     } catch (error) {
       console.error("Error al crear tablas:", error);
