@@ -10,7 +10,7 @@ export const conn = createPool({
 
 // Función para ejecutar consultas
 async function executeQuery(query) {
-    const connection = await pool.getConnection();
+    const connection = await conn.getConnection();
     try {
       const [rows, fields] = await connection.execute(query);
       return rows;
