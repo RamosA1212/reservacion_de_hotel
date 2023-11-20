@@ -1,0 +1,7 @@
+Integrante: alfonso Ramos
+
+enlaces: 
+* https://reservacion-de-hotel.onrender.com/api/reservas - para ver reservas
+* https://reservacion-de-hotel.onrender.com/api/habitaciones - para ver habitaciones
+* https://reservacion-de-hotel.onrender.com - el inicio
+* https://github.com/RamosA1212/reservacion_de_hotel/tree/main - repositorio github
