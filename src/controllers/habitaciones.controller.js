@@ -4,7 +4,7 @@ import { conn } from "../db.js"
 export const getHabitaciones = async (req, res) => {
     
     try {
-        const [rows] = await conn.query('SELECT * FROM habitaciones')
+        const [rows] = await executeQuery('SELECT * FROM habitaciones')
         res.send(rows)
         
     } catch (error) {
