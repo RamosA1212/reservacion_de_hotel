@@ -53,7 +53,7 @@ async function executeQuery(query) {
       console.error("Error al crear tablas:", error);
     } finally {
       // Cerrar la conexión de la pool después de ejecutar las consultas
-      await pool.end();
+      await conn.end();
     }
   }
   
