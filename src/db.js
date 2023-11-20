@@ -8,7 +8,7 @@ export const conn = createPool({
     database:DB_NAME,
 });
 
-// Función para ejecutar consultas
+
 async function executeQuery(query) {
     const connection = await conn.getConnection();
     try {
@@ -19,7 +19,7 @@ async function executeQuery(query) {
     }
   }
   
-  // Consulta para crear la tabla 'habitaciones'
+
   const createHabitacionesTableQuery = `
     CREATE TABLE habitaciones (
       codigo INT AUTO_INCREMENT PRIMARY KEY,
@@ -29,7 +29,7 @@ async function executeQuery(query) {
     );
   `;
   
-  // Consulta para crear la tabla 'reservas' con la clave foránea
+
   const createReservasTableQuery = `
     CREATE TABLE reservas (
       codigo INT AUTO_INCREMENT PRIMARY KEY,
@@ -43,7 +43,7 @@ async function executeQuery(query) {
     );
   `;
   
-  // Ejecutar las consultas de creación de tablas
+
   async function createTables() {
     try {
       await executeQuery(createHabitacionesTableQuery);
@@ -52,10 +52,10 @@ async function executeQuery(query) {
     } catch (error) {
       console.error("Error al crear tablas:", error);
     } finally {
-      // Cerrar la conexión de la pool después de ejecutar las consultas
-      await conn.end();
+      
+    //   await conn.end();
     }
   }
   
-  // Llamar a la función para crear las tablas
+
   createTables();
