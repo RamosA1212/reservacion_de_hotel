@@ -40,7 +40,7 @@ export const ingresar = async (req, res) => {
          }
         const token = jsonwebtoken.sign({ id: cliente[0].id, username: cliente[0].username, rol: cliente[0].rol }, 'palabrasecreta', { expiresIn: '2m' });
         res.cookie('token', token, { httpOnly: true,sameSite: 'None', secure: true});
-        res.send({token});
+        res.send(token);
     } catch (error) {
         return res.status(500).json({ error: 'Error del servidor' });
     }
