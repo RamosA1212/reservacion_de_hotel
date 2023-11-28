@@ -21,11 +21,21 @@ async function executeQuery(query) {
   
 
   const createUsuarios = `
-  CREATE TABLE usuarios (
-    id INT AUTO_INCREMENT PRIMARY KEY,
-    username VARCHAR(255) UNIQUE NOT NULL,
-    contraseña VARCHAR(255) NOT NULL,
-    rol ENUM('administrador', 'solicitante') NOT NULL
+ INSERT INTO reservas (
+  codigo_habitacion,
+  nombre_cliente,
+  telefono_cliente,
+  fecha_reservacion,
+  fecha_entrada,
+  fecha_salida
+) VALUES (
+  3,
+  'Nombre Cliente',
+  '1234567890',
+  '2023-11-27', 
+  '2023-12-01',
+  '2023-12-05' 
+);
   );
   `;
   
