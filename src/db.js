@@ -17,33 +17,36 @@ async function executeQuery(query) {
     } finally {
       connection.release();
     }
-  }
-  
+}
 
-  const createUsuarios = `
-  CREATE TABLE usuarios (
-    id INT AUTO_INCREMENT PRIMARY KEY,
-    username VARCHAR(255) UNIQUE NOT NULL,
-    contraseña VARCHAR(255) NOT NULL,
-    rol ENUM('administrador', 'solicitante') NOT NULL
+const insertReserva = `
+  INSERT INTO reservas (
+    codigo_habitacion,
+    nombre_cliente,
+    telefono_cliente,
+    fecha_reservacion,
+    fecha_entrada,
+    fecha_salida
+  ) VALUES (
+    5,
+    'Nombre Cliente',
+    '67890',
+    '2023-11-27',
+    '2023-12-01',
+    '2023-12-05'
   );
-  `;
-  
+`;
 
-  
-  
-
-  async function createTables() {
+async function insertData() {
     try {
-      await executeQuery(createUsuarios);
-      console.log("Tablas creadas exitosamente");
+      await executeQuery(insertReserva);
+      console.log("Datos de reserva insertados exitosamente");
     } catch (error) {
-      console.error("Error al crear tablas:", error);
+      console.error("Error al insertar datos de reserva:", error);
     } finally {
-      
-    //   await conn.end();
+      // Puedes realizar acciones de limpieza aquí si es necesario
+      // await conn.end();
     }
-  }
-  
+}
 
-  createTables();
+insertData();
