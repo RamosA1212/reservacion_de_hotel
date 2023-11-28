@@ -28,9 +28,9 @@ const insertReserva = `
     fecha_entrada,
     fecha_salida
   ) VALUES (
-    3,
+    5,
     'Nombre Cliente',
-    '1234567890',
+    '67890',
     '2023-11-27',
     '2023-12-01',
     '2023-12-05'
