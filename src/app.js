@@ -10,7 +10,7 @@ import cookieParser from "cookie-parser";
 const app = express();
 app.use(express.json())
 app.use(cors( ({
-    origin: "http://localhost:3000", // Reemplaza con el origen de tu frontend
+    origin: "https://reservar-front.onrender.com", 
     credentials: true,
 })))
 app.use(cookieParser())
