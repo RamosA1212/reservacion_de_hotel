@@ -1,11 +1,11 @@
 import { Router } from "express";
-import { getCliente, ingresar,crearCliente,renovarToken,verificarToken } from "../controllers/clientes.controller";
+import { ingresar,crearCliente } from "../controllers/clientes.controller.js";
 
 
 const router=Router()
 
-router.post('/registrarse',crearCliente);
-router.get('/ingresar', ingresar);
+router.post('/cliente/registrarse',crearCliente);
+router.get('/cliente/ingresar', ingresar);
 
 
 
