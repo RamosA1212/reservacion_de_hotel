@@ -19,11 +19,11 @@ export const getCliente = async (req, res) => {
 export const crearCliente = async (req, res) => {
     const { username, contraseña, rol } = req.body;
     try {
-        const [clienteEx] = await conn.query('SELECT * FROM Usuarios WHERE username = ?', [username]);
+        const [clienteEx] = await conn.query('SELECT * FROM usuarios WHERE username = ?', [username]);
         if (clienteEx.length > 0) {
             return res.status(400).json({ error: 'El cliente ya existe' });
         }
-        const [cliente] = await conn.query('INSERT INTO Usuarios (username, contraseña, rol) VALUES (?, ?, ?)', [username, contraseña, rol]);
+        const [cliente] = await conn.query('INSERT INTO usuarios (username, contraseña, rol) VALUES (?, ?, ?)', [username, contraseña, rol]);
         res.json({ id: cliente.insertId, mensaje: 'Cliente registrado' });
     } catch (error) {     
         return res.status(500).json({ error: 'Error del servidor' });
@@ -33,7 +33,7 @@ export const crearCliente = async (req, res) => {
 export const ingresar = async (req, res) => {
     const { username, contraseña } = req.body;
     try {
-        const [cliente] = await conn.query('SELECT * FROM Usuarios WHERE username = ? AND contraseña = ?', [username, contraseña]);
+        const [cliente] = await conn.query('SELECT * FROM usuarios WHERE username = ? AND contraseña = ?', [username, contraseña]);
 
          if (cliente.length === 0) {
              return res.status(401).json({ error: 'informacion incorrecta' });
