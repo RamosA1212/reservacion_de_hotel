@@ -5,10 +5,12 @@ import habitacionesRoutes from './routes/habitaciones.routes.js';
 import reservasRoutes from './routes/reservas.routes.js'
 import clienteRoutes from './routes/clientes.routes.js';
 import cors from "cors";
+import cookieParser from "cookie-parser";
 
 const app = express();
 app.use(express.json())
 app.use(cors())
+app.use(cookieParser())
 
 app.get('/', (req, res) => {
     res.send("Welcome")
