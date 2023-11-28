@@ -39,7 +39,7 @@ app.get('/ver', async (req, res) => {
 
 app.use('/api',habitacionesRoutes)
 app.use('/api',reservasRoutes)
-app.use('api', clienteRoutes)
+app.use('/api', clienteRoutes)
 
 app.listen(PORT)
 
