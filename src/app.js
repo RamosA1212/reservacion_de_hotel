@@ -3,6 +3,7 @@ import { conn } from "./db.js";
 import { PORT } from "./config.js";
 import habitacionesRoutes from './routes/habitaciones.routes.js';
 import reservasRoutes from './routes/reservas.routes.js'
+import clienteRoutes from './routes/clientes.routes.js';
 import cors from "cors";
 
 const app = express();
@@ -36,6 +37,7 @@ app.get('/ver', async (req, res) => {
 
 app.use('/api',habitacionesRoutes)
 app.use('/api',reservasRoutes)
+app.use('api', clienteRoutes)
 
 app.listen(PORT)
 
